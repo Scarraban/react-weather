@@ -12701,17 +12701,13 @@ module.exports = ReactPropTypesSecret;
 
 var React = __webpack_require__(5);
 
-var About = React.createClass({
-  displayName: 'About',
-
-  render: function () {
-    return React.createElement(
-      'h3',
-      null,
-      'About Component'
-    );
-  }
-});
+var About = props => {
+  return React.createElement(
+    'h3',
+    null,
+    'About Component'
+  );
+};
 
 module.exports = About;
 
@@ -12721,17 +12717,13 @@ module.exports = About;
 
 var React = __webpack_require__(5);
 
-var Examples = React.createClass({
-  displayName: 'Examples',
-
-  render: function () {
-    return React.createElement(
-      'h3',
-      null,
-      'Examples Component'
-    );
-  }
-});
+var Examples = props => {
+  return React.createElement(
+    'h3',
+    null,
+    'Examples Component'
+  );
+};
 
 module.exports = Examples;
 
@@ -12742,23 +12734,19 @@ module.exports = Examples;
 var React = __webpack_require__(5);
 var Nav = __webpack_require__(141);
 
-var Main = React.createClass({
-  displayName: 'Main',
-
-  render: function () {
-    return React.createElement(
-      'div',
+var Main = props => {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(Nav, null),
+    React.createElement(
+      'h2',
       null,
-      React.createElement(Nav, null),
-      React.createElement(
-        'h2',
-        null,
-        'Main Component'
-      ),
-      this.props.children
-    );
-  }
-});
+      'Main Component'
+    ),
+    props.children
+  );
+};
 
 module.exports = Main;
 
@@ -13707,36 +13695,32 @@ module.exports = {
 var React = __webpack_require__(5);
 var { Link, IndexLink } = __webpack_require__(73);
 
-var Nav = React.createClass({
-  displayName: 'Nav',
-
-  render: function () {
-    return React.createElement(
-      'div',
+var Nav = () => {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h2',
       null,
-      React.createElement(
-        'h2',
-        null,
-        'Nav Components'
-      ),
-      React.createElement(
-        IndexLink,
-        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-        'Get Weather'
-      ),
-      React.createElement(
-        Link,
-        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-        'About'
-      ),
-      React.createElement(
-        Link,
-        { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-        'Examples'
-      )
-    );
-  }
-});
+      'Nav Components'
+    ),
+    React.createElement(
+      IndexLink,
+      { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+      'Get Weather'
+    ),
+    React.createElement(
+      Link,
+      { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+      'About'
+    ),
+    React.createElement(
+      Link,
+      { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+      'Examples'
+    )
+  );
+};
 
 module.exports = Nav;
 
@@ -13784,21 +13768,17 @@ module.exports = WeatherForm;
 
 var React = __webpack_require__(5);
 
-var WeatherMessage = React.createClass({
-  displayName: 'WeatherMessage',
-
-  render: function () {
-    return React.createElement(
-      'h3',
-      null,
-      'It\'s ',
-      this.props.temp,
-      ' in ',
-      this.props.location,
-      '!'
-    );
-  }
-});
+var WeatherMessage = ({ temp, location }) => {
+  return React.createElement(
+    'h3',
+    null,
+    'It\'s ',
+    temp,
+    ' in ',
+    location,
+    '!'
+  );
+};
 
 module.exports = WeatherMessage;
 
