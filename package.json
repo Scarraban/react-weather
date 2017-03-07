@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js" 
+    "start": "node server.js"
   },
   "author": "Sam Butler-Thompson",
   "license": "MIT",
@@ -22,6 +22,11 @@
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.26.2",
+    "foundation-sites": "^6.3.1",
+    "jquery": "^3.1.1",
+    "script-loader": "^0.7.0",
+    "style-loader": "^0.13.2",
     "webpack": "^2.2.1"
   }
 }

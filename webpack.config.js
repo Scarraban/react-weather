@@ -3,9 +3,15 @@ var webpack = require('webpack');
 
 var PROD = JSON.parse(process.env.PROD_ENV || '0');
 
-module.exports = {
-  entry: './app/app.jsx',
-  devtool: 'source-map',
+var config = {
+  entry: [
+    'script-loader!jquery/dist/jquery.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
   output: {
     path: __dirname,
     filename: PROD ? './public/bundle.min.js' : './public/bundle.js'
@@ -32,9 +38,21 @@ module.exports = {
       }
     ]
   },
-  plugins: PROD ? [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
+  plugins: PROD !== '0' ? [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
     })
-  ] : []
+  ] : [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ]
 };
+
+if(PROD == '0') {
+  config.devtool = 'source-map';
+}
+
+module.exports = config;
